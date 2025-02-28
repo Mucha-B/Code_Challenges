@@ -1,0 +1,20 @@
+***Sites***
+- Hackerrank (https://www.hackerrank.com/)
+- Leetcode (https://leetcode.com/)
+- Codeforces (https://codeforces.com/)
+- Topcoder (https://www.topcoder.com/)
+- Turing (https://developers.turing.com/)
+- Codewars (https://www.codewars.com/)
+- Coderbyte (https://coderbyte.com/)
+- CodeChef (https://www.codechef.com/)
+
+
+HackerRank: Offers a vast collection of coding challenges across various domains and difficulty levels, allowing you to practice and improve your problem-solving abilities.
+
+LeetCode: Renowned for its extensive problem set and frequent coding contests, LeetCode helps in honing your algorithmic skills, which are crucial for technical interviews.
+
+Codeforces: Provides a competitive programming environment with regular contests and a diverse set of problems, fostering quick thinking and efficient problem-solving under time constraints.
+
+Topcoder: One of the original competitive programming platforms, Topcoder offers algorithmic challenges and competitions that simulate real-world problem-solving scenarios.
+
+Codewars: Features a community-driven platform where you can practice coding through "kata" exercises, ranging from beginner to advanced levels, promoting continuous learning and skill improvement.
