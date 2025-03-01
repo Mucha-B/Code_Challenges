@@ -32,17 +32,17 @@ class Watermelon {
         // Public Method acessible outside class to check if the watermelon can be split into two even parts
         void canDivide() {
             if (melonWeight % 2 == 0 && melonWeight > 2) {
-                cout << "YES from public int" << endl;
+                cout << "YES from public int variable in class" << endl;
             } else {
-                cout << "NO from public int" << endl;
+                cout << "NO from public int variable in class" << endl;
             }
         }
 
         void canDivideArg(int melonWeightArg) {
             if (melonWeightArg % 2 == 0 && melonWeightArg > 2) {
-                cout << "YES from method arg" << endl;
+                cout << "YES from method arg variable only" << endl;
             } else {
-                cout << "NO from method arg" << endl;
+                cout << "NO from method arg variable only" << endl;
             }
         }
     };
@@ -56,11 +56,11 @@ int main()
     cin >> melonW;
     if (melonW % 2 == 0 && melonW > 2)
     {
-        cout << "YES from inside int main function" << endl;
+        cout << "YES from inside int main(){} function" << endl;
     }
     else
     {
-        cout << "NO from inside int main function" << endl;
+        cout << "NO from inside int main(){} function" << endl;
     }
 
 
