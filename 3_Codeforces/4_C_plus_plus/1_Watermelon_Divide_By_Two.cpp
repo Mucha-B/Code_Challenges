@@ -38,6 +38,7 @@ class Watermelon {
             }
         }
 
+        // Function with arg called directly with an object
         void canDivideArg(int melonWeightArg) {
             if (melonWeightArg % 2 == 0 && melonWeightArg > 2) {
                 cout << "YES from method arg variable only" << endl;
