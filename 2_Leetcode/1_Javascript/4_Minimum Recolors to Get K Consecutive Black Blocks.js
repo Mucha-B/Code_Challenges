@@ -34,3 +34,43 @@ blocks[i] is either 'W' or 'B'.
 1 <= k <= n
 
 */
+
+
+
+/**
+ * @param {string} blocks
+ * @param {number} k
+ * @return {number}
+ */
+var minimumRecolors = function (blocks, k) {
+    let result = blocks.length
+    let currSubArr = []
+    let whiteBlocksCounter = 0
+    for (let i = 0; i < blocks.length; i++) {
+
+        if (currSubArr.length < k) {
+            currSubArr.push(blocks[i])
+            if (blocks[i] === 'W') {
+                whiteBlocksCounter++
+            }
+            result = whiteBlocksCounter
+        } else {
+            currSubArr.push(blocks[i])
+
+            if (currSubArr[0] === 'W') {
+                whiteBlocksCounter--
+            }
+            if (blocks[i] === 'W') {
+                whiteBlocksCounter++
+
+            }
+            currSubArr.shift()
+            result = Math.min(result, whiteBlocksCounter)
+        }
+
+
+    }
+    return result
+};
+
+console.log(minimumRecolors("WBBWWBBWBW", 7));
