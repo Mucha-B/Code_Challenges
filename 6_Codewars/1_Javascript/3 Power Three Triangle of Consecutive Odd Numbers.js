@@ -32,9 +32,9 @@ let calcSum= function rowSumOddNumbers(n){
     */
 
    // Multiply by three
-   // return n*=3;
+   // return n *= 3;
    // Power three
-   return n**3;
+   return n ** 3;
 
    //   or
    // return Math.pow(n, 3);
