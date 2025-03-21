@@ -31,15 +31,15 @@ let calcSum= function rowSumOddNumbers(n){
      ... oh. 
     */
 
-// Multiply by three
-// return n*=3;
-// Power three
-return n**3;
+   // Multiply by three
+   // return n*=3;
+   // Power three
+   return n**3;
 
-//   or
-// return Math.pow(n, 3);
-//   return n * n * n;
-// return n > 0 ? n * n * n : "Wrong Input";
+   //   or
+   // return Math.pow(n, 3);
+   //   return n * n * n;
+   // return n > 0 ? n * n * n : "Wrong Input";
 
 }
 
