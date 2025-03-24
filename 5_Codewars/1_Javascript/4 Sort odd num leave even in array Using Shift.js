@@ -73,3 +73,25 @@ function sortArrayMap(array) {
    const odd = array.filter((x) => x % 2).sort((a,b) => a - b);
    return array.map((x) => x % 2 ? odd.shift() : x);
  }
+
+//  Another Elegant solution
+sortArray = (a,b=a.filter(a=>a%2).sort((a,b)=>a-b))=>a.map(a=>a%2?b.shift():a);
+
+
+
+// Understanding shift
+ let arrXP = [125, 345, 223, 94, 176, 409];
+ let testArr = [];
+ let k = 0;
+
+ let experiment = arrXP.shift();    // 125 stored
+     experiment = arrXP.shift();    // 125 lost and 345 stored
+
+ console.log(experiment);
+ console.log(arrXP);
+
+while(k < arrXP.length){
+  testArr.push(arrXP.shift()); 
+ }
+
+ console.log(testArr);
