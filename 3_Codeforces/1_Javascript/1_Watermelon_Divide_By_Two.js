@@ -23,7 +23,7 @@
 */
 
 // Function takes in Watermelon size in KG
-function canDivideWatermelon(melonWeight) {
+let canDivideWatermelon = function (melonWeight) {
     // Check if melonWeight is even and greater than 2
     // === Compares both values and types                               // "5" === 5 → false
     // == Only compares values (performs type conversion if needed)     // "5" == 5 → true
@@ -35,5 +35,5 @@ function canDivideWatermelon(melonWeight) {
 }
 
 // Test case from example
-// canDivideWatermelon(8);
-// canDivideWatermelon(5);
+canDivideWatermelon(8);
+canDivideWatermelon(5);
