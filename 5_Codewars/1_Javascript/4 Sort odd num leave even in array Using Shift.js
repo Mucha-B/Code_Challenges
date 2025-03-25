@@ -1,6 +1,7 @@
     /*
     Task
-      You will be given an array of numbers. You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
+      You will be given an array of numbers.
+      You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
    
    Examples
       [7, 1]  =>  [1, 7]
@@ -21,7 +22,8 @@
              }
            }
 
-         myArr.sort(function(a, b){return a-b});
+        //  Sorting function to sort them in ascending
+         myArr.sort(function(a, b){return a - b});
 
          for(let j = 0; j < array.length; j++){
              if(array[j] == 'replace'){
@@ -45,8 +47,8 @@
            }
          }
          //sort odds from smallest to largest
-         odds.sort(function(a,b){
-           return a-b;
+         odds.sort(function(a, b){
+           return a - b;
          });
          
          //loop through array, replace any odd values with sorted odd values
