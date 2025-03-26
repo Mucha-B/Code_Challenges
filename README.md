@@ -2,4 +2,4 @@
 
 # Code Challenges from different sites and my solutions
 
-# Other peoples solutions too
+# Other people's solutions too
