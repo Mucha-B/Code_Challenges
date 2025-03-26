@@ -14,14 +14,14 @@ Output: 2
 */
 
 // Step for permutations and combinations
-function BracketCombinations(num) { 
+function BracketCombinations(num) {
     // By Doing sum search i found a formula that can achieve what this problem want
     // called Catalan number (Catalan Formula)
     // where catalan formula is ==> (2n!) / (n+1)! n!
   
     // first i will calculate the factorial of the num
     let factorial = (n) => {
-    // let factorial = function (n) {       // Both work the same
+    // let factorial = function (n) {       // Both functions work the same
     
       let k = 1;
       for(var i = n; i >= 1; i--){
@@ -38,4 +38,34 @@ function BracketCombinations(num) {
      
   // keep this function call here 
   console.log(BracketCombinations(3));
-  console.log(BracketCombinations(2));
+  console.log(BracketCombinations(8));
+
+
+
+
+  // Solution Two
+  function TwoBracketCombinations(num) {
+
+    function calculatePOssibilities (open, closed) {
+        if (open === 0 && closed === 0){
+            return 1;
+        }
+
+        var res = 0;
+        
+        if (open > 0){
+            res += calculatePOssibilities(open - 1, closed);
+          }
+        if (closed > open){
+            res += calculatePOssibilities(open, closed - 1);
+          }
+
+        return res;
+    }
+    // code goes here  
+    return calculatePOssibilities(num, num);
+}
+
+   
+// keep this function call here 
+console.log(TwoBracketCombinations(8));
