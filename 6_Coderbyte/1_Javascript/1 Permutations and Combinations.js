@@ -13,6 +13,8 @@ Input: 2
 Output: 2
 */
 
+
+// Not my solutions
 // Step for permutations and combinations
 function BracketCombinations(num) {
     // By Doing sum search i found a formula that can achieve what this problem want
@@ -66,6 +68,6 @@ function BracketCombinations(num) {
     return calculatePOssibilities(num, num);
 }
 
-   
-// keep this function call here 
+
+
 console.log(TwoBracketCombinations(8));
