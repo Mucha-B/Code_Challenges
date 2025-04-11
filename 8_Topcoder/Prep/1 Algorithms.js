@@ -28,7 +28,7 @@ Waiting:sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8]
 
 
 // Neex to fix code below
-function sym(...args) {
+function symWrong(...args) {
 
     args = args.flat();
     args = args.sort();
@@ -54,8 +54,52 @@ function sym(...args) {
     return myArr;
   }
   
-  console.log(sym([1, 2, 3], [5, 2, 1, 4]));    // Output => [ 3, 4, 5 ]
-  console.log(sym([1, 2, 3, 3], [5, 2, 1, 4])); // Output => [ 4, 5 ]
+//   console.log(symWrong([1, 2, 3], [5, 2, 1, 4]));    // Output => [ 3, 4, 5 ]
+//   console.log(symWrong([1, 2, 3, 3], [5, 2, 1, 4])); // Output => [ 4, 5 ] (Wrong) Should be => [ 3, 4, 5 ]
 
 //   sym([1, 2, 3], [5, 2, 1, 4])
+
+
+function sym(...args) {
+
+    let myArr = [];
+    // args = args.sort();
+    let count = 0;
+    let val;
+
+    for(let i = 0; i < args.length; i++){
+        // console.log(args[i]);
+
+        for(let k = 0; k < args[i].length; k++){
+            // console.log(args[i][k]);
+            for(let l = 0; l < args[i].length; l++){
+                if(args[i][k] == args[i][l]){
+                    count += 1;
+                }else{
+                    val = args[i][l];
+                }
+            }
+            // Remove duplicate values in all the arrays
+            if(count > 1){
+                // Combining indexOf() and splice() Methods
+                // Pass the value of the element you wish to remove from your array into the indexOf() method to return the index of the element that matches that value in the array.
+                // Then make use of the splice() method to remove the element at the returned index.
+                const index = args[i].indexOf(args[i][k]);
+                args[i].splice(index, 1);
+            }
+            count = 0;
+        }
+    }
+
+    // Now process the arrays to find the symmetric difference
+
+    return args;
+    // return myArr;
+
+}
+
+
+console.log(sym([1, 2, 3, 3], [5, 2, 1, 4]));
+console.log(sym([3, 3, 3, 2, 5], [2, 1, 5, 7, 2], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]));
+
 
