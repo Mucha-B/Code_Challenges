@@ -69,6 +69,7 @@ function sym(...args) {
 
     for(let i = 0; i < args.length; i++){
         // console.log(args[i]);
+        args[i].sort();
 
         for(let k = 0; k < args[i].length; k++){
             // console.log(args[i][k]);
@@ -84,6 +85,10 @@ function sym(...args) {
                 // Combining indexOf() and splice() Methods
                 // Pass the value of the element you wish to remove from your array into the indexOf() method to return the index of the element that matches that value in the array.
                 // Then make use of the splice() method to remove the element at the returned index.
+                // splice use => array.splice(start, deleteCount, item1, item2, ...)
+                                // start	The index where to start changing the array
+                                // deleteCount	The number of elements to remove starting from start
+                                // item1, item2…	(Optional) Elements to add at the start index
                 const index = args[i].indexOf(args[i][k]);
                 args[i].splice(index, 1);
             }
@@ -91,15 +96,125 @@ function sym(...args) {
         }
     }
 
-    // Now process the arrays to find the symmetric difference
+    let array1 = [];
+    let array2 = [];
+    let combinedArray = [];
 
-    return args;
+    for(let aaa = 0;  aaa < args.length; aaa++){
+
+        // if(args[aaa] < args.length){
+        if(2 < args.length){
+
+            for(let bbb = 0; bbb < args[aaa].length; bbb++){
+
+                for(let ccc = 0; ccc < args[aaa + 1].length; ccc++){
+
+                    if (args[aaa][bbb] == args[aaa + 1][ccc]){
+                            count += 1;
+                    }
+                }
+                if(count == 0){
+                    for(let ddd; ddd < myArr.length; ddd++){
+                        if(myArr[ddd] == args[aaa][bbb]){
+                            break;
+                        }else{
+                            myArr.push(args[aaa][bbb]);
+                        }
+                    }
+
+                }
+                count = 0;
+            }
+        }
+        // [ 2, 3, 5 ],
+        // [ 1, 2, 5, 7 ],
+        // [ 3, 4, 6 ],
+        // [ 1, 2, 3 ],
+        // [ 3, 5, 8, 9 ],
+        // [ 1 ]
+    }
+
+    // return args;
     // return myArr;
+    console.log(myArr);
+    // console.log(args);
 
 }
 
 
-console.log(sym([1, 2, 3, 3], [5, 2, 1, 4]));
-console.log(sym([3, 3, 3, 2, 5], [2, 1, 5, 7, 2], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]));
+// console.log(sym([1, 2, 3, 3], [5, 2, 1, 4]));
+// console.log(sym([3, 3, 3, 2, 5], [2, 1, 5, 7, 2], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]));
+sym([3, 3, 3, 2, 5], [2, 1, 5, 7, 2], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]);
 
 
+
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // GPT Answer
+  // Helper to get symmetric difference between two arrays
+ function sym(...args) {
+  // Helper to remove duplicates from an array
+  function unique(arr) {
+    var result = [];
+    for (var i = 0; i < arr.length; i++) {
+      var found = false;
+      for (var j = 0; j < result.length; j++) {
+        if (arr[i] === result[j]) {
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        result.push(arr[i]);
+      }
+    }
+    return result;
+  }
+
+  // Helper to get symmetric difference between two arrays
+  function symDiff(arr1, arr2) {
+    var result = [];
+    arr1 = unique(arr1);
+    arr2 = unique(arr2);
+
+    // Add elements from arr1 that are not in arr2
+    for (var i = 0; i < arr1.length; i++) {
+      var found = false;
+      for (var j = 0; j < arr2.length; j++) {
+        if (arr1[i] === arr2[j]) {
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        result.push(arr1[i]);
+      }
+    }
+
+    // Add elements from arr2 that are not in arr1
+    for (var i = 0; i < arr2.length; i++) {
+      var found = false;
+      for (var j = 0; j < arr1.length; j++) {
+        if (arr2[i] === arr1[j]) {
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        result.push(arr2[i]);
+      }
+    }
+
+    return result;
+  }
+
+  // Process each array pairwise
+  var result = args[0];
+  for (var i = 1; i < args.length; i++) {
+    result = symDiff(result, args[i]);
+  }
+
+  return unique(result); // Final cleanup of duplicates
+}
