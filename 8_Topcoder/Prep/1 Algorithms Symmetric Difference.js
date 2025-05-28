@@ -60,13 +60,14 @@ function symWrong(...args) {
 //   sym([1, 2, 3], [5, 2, 1, 4])
 
 
-function sym(...args) {
+function mySym(...args) {
 
     let myArr = [];
     // args = args.sort();
     let count = 0;
     let val;
 
+    // Remove duplicates from the array
     for(let i = 0; i < args.length; i++){
         // console.log(args[i]);
         args[i].sort();
@@ -100,6 +101,7 @@ function sym(...args) {
     let array2 = [];
     let combinedArray = [];
 
+    // Using the first array are the reference point, loop through the rest of the arrays while creating an archive of the symetric difference
     for(let aaa = 0;  aaa < args.length; aaa++){
 
         // if(args[aaa] < args.length){
@@ -144,7 +146,7 @@ function sym(...args) {
 
 // console.log(sym([1, 2, 3, 3], [5, 2, 1, 4]));
 // console.log(sym([3, 3, 3, 2, 5], [2, 1, 5, 7, 2], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]));
-sym([3, 3, 3, 2, 5], [2, 1, 5, 7, 2], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]);
+// sym([3, 3, 3, 2, 5], [2, 1, 5, 7, 2], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]);
 
 
 
@@ -155,66 +157,75 @@ sym([3, 3, 3, 2, 5], [2, 1, 5, 7, 2], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]
   // GPT Answer
   // Helper to get symmetric difference between two arrays
  function sym(...args) {
-  // Helper to remove duplicates from an array
+  // The function sym takes any number of arrays as arguments using the rest operator (...args)
+
+  // Helper function to remove duplicates from an array
   function unique(arr) {
-    var result = [];
+    var result = []; // This will store the unique elements
     for (var i = 0; i < arr.length; i++) {
       var found = false;
       for (var j = 0; j < result.length; j++) {
         if (arr[i] === result[j]) {
-          found = true;
-          break;
+          found = true; // If the current element already exists in result, mark it as found
+          break; // Stop checking further
         }
       }
       if (!found) {
-        result.push(arr[i]);
+        result.push(arr[i]); // Add to result if not found (i.e., it's unique)
       }
     }
-    return result;
+    return result; // Return array with unique elements
   }
 
-  // Helper to get symmetric difference between two arrays
+  // Helper function to compute symmetric difference between two arrays
   function symDiff(arr1, arr2) {
     var result = [];
+
+    // Ensure both arrays are unique before comparison
     arr1 = unique(arr1);
     arr2 = unique(arr2);
 
-    // Add elements from arr1 that are not in arr2
+    // Find elements in arr1 not in arr2
     for (var i = 0; i < arr1.length; i++) {
       var found = false;
       for (var j = 0; j < arr2.length; j++) {
         if (arr1[i] === arr2[j]) {
-          found = true;
+          found = true; // If element exists in arr2, it's not part of symmetric difference
           break;
         }
       }
       if (!found) {
-        result.push(arr1[i]);
+        result.push(arr1[i]); // If not found in arr2, add to result
       }
     }
 
-    // Add elements from arr2 that are not in arr1
+    // Find elements in arr2 not in arr1
     for (var i = 0; i < arr2.length; i++) {
       var found = false;
       for (var j = 0; j < arr1.length; j++) {
         if (arr2[i] === arr1[j]) {
-          found = true;
+          found = true; // If element exists in arr1, it's not part of symmetric difference
           break;
         }
       }
       if (!found) {
-        result.push(arr2[i]);
+        result.push(arr2[i]); // If not found in arr1, add to result
       }
     }
 
-    return result;
+    return result; // Return the symmetric difference of the two arrays
   }
 
-  // Process each array pairwise
+  // Initialize result with the first array
   var result = args[0];
+
+  // Loop through all remaining arrays to compute cumulative symmetric difference
   for (var i = 1; i < args.length; i++) {
-    result = symDiff(result, args[i]);
+    result = symDiff(result, args[i]); // Keep combining the result with the next array
   }
 
-  return unique(result); // Final cleanup of duplicates
+  return unique(result.sort()); // Return the final result with duplicates removed, just in case
 }
+
+
+console.log(sym([3, 3, 3, 2, 5], [2, 1, 5, 7, 2], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]));

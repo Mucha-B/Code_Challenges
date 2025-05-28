@@ -5,10 +5,10 @@
  * String myString = scanner.next();
  * int myInt = scanner.nextInt();
  * scanner.close();
- * 
+ *
  * System.out.println("myString is: " + myString);
  * System.out.println("myInt is: " + myInt);
- * 
+ *
 */
 
 import java.io.BufferedReader;
@@ -51,7 +51,7 @@ public class A_UserInput {
         System.out.print("Buffereader Enter your name: ");
         String name = reader.readLine();
         
-        System.out.println("Hello, " + name + "!");
+        System.out.println("Hello agent, " + name + "!");
         
         scanner.close();
         reader.close();
