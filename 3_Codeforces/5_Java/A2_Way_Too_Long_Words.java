@@ -31,4 +31,23 @@
 
 */
 
+import java.util.Scanner;
 
+public class A2_Way_Too_Long_Words{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Comment line below coz it'll interfere with the test in Codeforces
+        // Codeforces compiler expects to be prompted for an input and expects an output of either "YES" or "NO"
+        System.out.print("Enter Watermelon Weight: ");
+        int w = scanner.nextInt();
+
+        if (w > 2 && w % 2 == 0) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+        
+        scanner.close();
+    }
+}

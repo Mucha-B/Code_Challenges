@@ -22,7 +22,7 @@
 
 import java.util.Scanner;
 
-public class A_WatermelonDivideByTwo {
+public class A1_Watermelon_Divide_By_Two {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -36,7 +36,7 @@ public class A_WatermelonDivideByTwo {
         } else {
             System.out.println("NO");
         }
-
+        
         scanner.close();
     }
 }
