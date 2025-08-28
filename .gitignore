@@ -1,1 +1,7 @@
 sites.txt
+
+# Ignore all .class files
+*.class
+
+# But do not ignore .gitignore itself
+!.gitignore
